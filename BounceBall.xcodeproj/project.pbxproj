@@ -26,22 +26,9 @@
 		1820C7BA2E745D9900AA12E2 /* BounceBallTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BounceBallTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		1820C7C02E745D9900AA12E2 /* Exceptions for "BounceBall" folder in "BounceBall" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 1820C7A12E745D9800AA12E2 /* BounceBall */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		1820C7A42E745D9800AA12E2 /* BounceBall */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				1820C7C02E745D9900AA12E2 /* Exceptions for "BounceBall" folder in "BounceBall" target */,
-			);
 			path = BounceBall;
 			sourceTree = "<group>";
 		};
@@ -107,7 +94,6 @@
 			buildPhases = (
 				1820C79E2E745D9800AA12E2 /* Sources */,
 				1820C79F2E745D9800AA12E2 /* Frameworks */,
-				1820C7A02E745D9800AA12E2 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -187,13 +173,6 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		1820C7A02E745D9800AA12E2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		1820C7B82E745D9900AA12E2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -239,7 +218,7 @@
 				DEVELOPMENT_TEAM = 3F2SU69WAB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				INFOPLIST_FILE = "$(TARGET_NAME)/Resource/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -264,7 +243,7 @@
 				DEVELOPMENT_TEAM = 3F2SU69WAB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				INFOPLIST_FILE = "$(TARGET_NAME)/Resource/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
