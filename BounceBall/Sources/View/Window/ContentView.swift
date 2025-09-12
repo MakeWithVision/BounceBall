@@ -13,18 +13,15 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
-            Model3D(named: "Scene", bundle: realityKitContentBundle)
-                .padding(.bottom, 50)
-
-            Text("Hello, world!")
-
-            ToggleImmersiveSpaceButton()
+            MainWindow()
         }
         .padding()
+        .frame(width: 384, height: 260)
     }
 }
 
 #Preview(windowStyle: .automatic) {
     ContentView()
         .environment(AppModel())
+        .environment(BallModel())
 }
