@@ -18,4 +18,10 @@ class AppModel {
         case open
     }
     var immersiveSpaceState = ImmersiveSpaceState.closed
+  
+  private(set) var isFirstLaunch: Bool = true
+  
+  func makrFirstLaunchFalse() {
+    isFirstLaunch = false
+  }
 }

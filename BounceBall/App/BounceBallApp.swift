@@ -25,10 +25,18 @@ struct BounceBallApp: App {
         .environment(appModel)
         .onAppear {
           appModel.immersiveSpaceState = .open
-          openWindow(id: "MainWindow")
+          
+          if appModel.isFirstLaunch {
+            openWindow(id: "MainWindow")
+          }
+          
         }
         .onDisappear {
           appModel.immersiveSpaceState = .closed
+          
+          if appModel.isFirstLaunch {
+            appModel.makrFirstLaunchFalse()
+          }
           dismissWindow(id: "MainWindow")
         }
     }
