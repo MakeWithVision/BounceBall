@@ -62,8 +62,10 @@ struct ImmersiveView: View {
     let extent = anchor.geometry.extent
     let mesh = MeshResource.generatePlane(width: extent.width, height: extent.height)
     let material = OcclusionMaterial()
+    let testMaterial = [SimpleMaterial(color: .red, isMetallic: true)]
     
     let entity = ModelEntity(mesh: mesh, materials: [material])
+    
     entity.transform = Transform(matrix: matrix_multiply(anchor.originFromAnchorTransform, extent.anchorFromExtentTransform))
     
     entity.generateCollisionShapes(recursive: true, static: true)
