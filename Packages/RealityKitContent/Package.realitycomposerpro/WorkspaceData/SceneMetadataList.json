@@ -11,6 +11,27 @@
       }
     ]
   },
+  "2A57455D-20CE-468B-AF9B-BCB5069650E2" : {
+    "objectMetadataList" : [
+      [
+        "2A57455D-20CE-468B-AF9B-BCB5069650E2",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "2A57455D-20CE-468B-AF9B-BCB5069650E2",
+        "Root",
+        "TennisBall"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
   "65F6F990-A780-4474-B78B-572E0E4E273D" : {
     "objectMetadataList" : [
       [
@@ -39,6 +60,27 @@
     "objectMetadataList" : [
       [
         "AF09ED6F-1707-48FD-8720-65B998362C09",
+        "Root",
+        "GridMaterial"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "AF09ED6F-1707-48FD-8720-65B998362C09",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "B6BF9BBF-20F3-4CE5-AFA6-D87874F0C55F" : {
+    "objectMetadataList" : [
+      [
+        "B6BF9BBF-20F3-4CE5-AFA6-D87874F0C55F",
         "Root"
       ],
       {
@@ -51,7 +93,8 @@
     "objectMetadataList" : [
       [
         "CB766F92-EE55-4A63-9401-E7B8C009764D",
-        "Root"
+        "Root",
+        "GridMaterial"
       ],
       {
         "isExpanded" : true,
@@ -59,8 +102,7 @@
       },
       [
         "CB766F92-EE55-4A63-9401-E7B8C009764D",
-        "Root",
-        "GridMaterial"
+        "Root"
       ],
       {
         "isExpanded" : true,
