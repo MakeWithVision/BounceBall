@@ -2,10 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSEnterpriseMCAMUsageDescription</key>
+	<string></string>
+	<key>NSWorldSensingUsageDescription</key>
+	<string></string>
+	<key>Privacy - Enterprise Main Camera Usage Description </key>
+	<string></string>
+	<key>Privacy - world Sensing Usage Description</key>
+	<string></string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationPreferredDefaultSceneSessionRole</key>
-		<string>UIWindowSceneSessionRoleApplication</string>
+		<string>UISceneSessionRoleImmersiveSpaceApplication</string>
 		<key>UIApplicationSupportsMultipleScenes</key>
 		<true/>
 		<key>UISceneConfigurations</key>
@@ -14,7 +22,7 @@
 			<array>
 				<dict>
 					<key>UISceneInitialImmersionStyle</key>
-					<string>UIImmersionStyleFull</string>
+					<string>UIImmersionStyleMixed</string>
 				</dict>
 			</array>
 		</dict>
