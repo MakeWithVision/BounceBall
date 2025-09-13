@@ -23,5 +23,4 @@ struct ContentView: View {
 #Preview(windowStyle: .automatic) {
     ContentView()
         .environment(AppModel())
-        .environment(BallModel())
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import simd
 
 /// Maintains app-wide state
 @MainActor
@@ -27,4 +28,8 @@ class AppModel {
   func makrFirstLaunchFalse() {
     isFirstLaunch = false
   }
+
+  // 공 관리
+  var ballPresent: Bool = false
+  var ballPosition: SIMD3<Float>?
 }

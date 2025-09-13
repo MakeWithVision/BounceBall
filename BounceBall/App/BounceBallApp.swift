@@ -11,7 +11,6 @@ import SwiftUI
 struct BounceBallApp: App {
 
   @State private var appModel = AppModel()
-  @State private var ballModel = BallModel()
   @Environment(\.openWindow) private var openWindow
   @Environment(\.dismissWindow) private var dismissWindow
 
@@ -19,7 +18,6 @@ struct BounceBallApp: App {
     WindowGroup(id: "MainWindow") {
       ContentView()
         .environment(appModel)
-        .environment(ballModel)
     }
     .defaultSize(width: 384, height: 260)
     .windowResizability(.contentSize)
@@ -50,7 +48,6 @@ struct BounceBallApp: App {
     ImmersiveSpace(id: appModel.immersiveSpaceVRID) {
             ImmersiveVRView()
                 .environment(appModel)
-                .environment(ballModel)
                 .onAppear {
                     appModel.immersiveSpaceState = .vr
                 }

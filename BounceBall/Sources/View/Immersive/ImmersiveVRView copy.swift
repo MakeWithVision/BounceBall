@@ -11,7 +11,7 @@ import RealityKitContent
 import simd
 
 struct ImmersiveVRView: View {
-    @Environment(BallModel.self) private var ballModel
+    @Environment(AppModel.self) private var appModel
     @State private var worldAnchor = AnchorEntity(world: .zero)
     @State private var headAnchor = AnchorEntity(.head)
     @State private var immersiveRoot: Entity?
@@ -32,7 +32,7 @@ struct ImmersiveVRView: View {
         .onAppear {
             print("ImmersiveView appeared")
         }
-        .onChange(of: ballModel.isPresent) { previous, present in
+        .onChange(of: appModel.ballPresent) { previous, present in
             print("isPresent: \(previous) -> \(present)")
             if present {
                 // 헤드 기준 로컬 좌표로 60cm 앞, 1m 높이에 스폰
@@ -46,7 +46,7 @@ struct ImmersiveVRView: View {
         }
         // ImmersiveView가 나중에 열릴 때도 반영
         .task {
-            if ballModel.isPresent, ball == nil {
+            if appModel.ballPresent, ball == nil {
                 let spawnLocal = SIMD3<Float>(0, 1.0, -0.6)
                 await spawnBall(headLocal: spawnLocal)
             }
@@ -101,5 +101,4 @@ struct ImmersiveVRView: View {
 #Preview(immersionStyle: .full) {
     ImmersiveVRView()
         .environment(AppModel())
-        .environment(BallModel())
 }

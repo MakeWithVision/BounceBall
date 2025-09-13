@@ -2,7 +2,7 @@ import SwiftUI
 import simd
 
 struct MainWindow: View {
-    @Environment(BallModel.self) private var ballModel
+    @Environment(AppModel.self) private var appModel
 
     var body: some View {
         GeometryReader3D { proxy in
@@ -11,7 +11,7 @@ struct MainWindow: View {
                 .padding()
                 HStack {
                     ToggleImmersiveSpaceButton()
-                    Button(ballModel.isPresent ? "공 초기화" : "공 생성하기") {
+                    Button(appModel.ballPresent ? "공 초기화" : "공 생성하기") {
                         let windowCenter = proxy.frame(in: . immersiveSpace).center
                         let pos = SIMD3<Float>(
                             Float(windowCenter.x),
@@ -19,11 +19,11 @@ struct MainWindow: View {
                             Float(windowCenter.z) - 0.3
                         )
 
-                        if ballModel.isPresent {
-                            ballModel.isPresent = false
+                        if appModel.ballPresent {
+                            appModel.ballPresent = false
                         } else {
-                            // ballModel.position = pos
-                            ballModel.isPresent = true
+                            // appModel.ballPosition = pos
+                            appModel.ballPresent = true
                         }
                     }
                 }
@@ -35,5 +35,4 @@ struct MainWindow: View {
 #Preview {
     MainWindow()
         .environment(AppModel())
-        .environment(BallModel())
 }
