@@ -11,13 +11,16 @@ import SwiftUI
 @MainActor
 @Observable
 class AppModel {
-    let immersiveSpaceID = "ImmersiveSpace"
+  // 공간 관리
+    let immersiveSpaceARID = "ImmersiveSpaceAR"
+    let immersiveSpaceVRID = "ImmersiveSpaceVR"
+
     enum ImmersiveSpaceState {
-        case closed
+        case ar
         case inTransition
-        case open
+        case vr
     }
-    var immersiveSpaceState = ImmersiveSpaceState.closed
+    var immersiveSpaceState = ImmersiveSpaceState.ar
   
   private(set) var isFirstLaunch: Bool = true
   

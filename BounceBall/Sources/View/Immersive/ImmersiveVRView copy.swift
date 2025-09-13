@@ -10,7 +10,7 @@ import RealityKit
 import RealityKitContent
 import simd
 
-struct ImmersiveView: View {
+struct ImmersiveVRView: View {
     @Environment(BallModel.self) private var ballModel
     @State private var worldAnchor = AnchorEntity(world: .zero)
     @State private var headAnchor = AnchorEntity(.head)
@@ -99,7 +99,7 @@ struct ImmersiveView: View {
 }
 
 #Preview(immersionStyle: .full) {
-    ImmersiveView()
+    ImmersiveVRView()
         .environment(AppModel())
         .environment(BallModel())
 }

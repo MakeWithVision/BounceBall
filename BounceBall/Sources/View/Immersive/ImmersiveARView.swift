@@ -10,7 +10,7 @@ import ARKit
 import RealityKit
 import RealityKitContent
 
-struct ImmersiveView: View {
+struct ImmersiveARView: View {
   @State var session = ARKitSession()
   
   @State var planeAnchorsSimple: [UUID: Entity] = [:]
@@ -82,6 +82,6 @@ struct ImmersiveView: View {
 
 
 #Preview(immersionStyle: .mixed) {
-  ImmersiveView()
+  ImmersiveARView()
     .environment(AppModel())
-}
+}   
