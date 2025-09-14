@@ -19,12 +19,14 @@ struct BounceBallApp: App {
       ContentView()
         .environment(appModel)
     }
+    .defaultSize(width: 384, height: 260)
+    .windowResizability(.contentSize)
 
-    ImmersiveSpace(id: appModel.immersiveSpaceID) {
-      ImmersiveView()
+    ImmersiveSpace(id: appModel.immersiveSpaceARID) {
+      ImmersiveARView()
         .environment(appModel)
         .onAppear {
-          appModel.immersiveSpaceState = .open
+          appModel.immersiveSpaceState = .ar
           
           if appModel.isFirstLaunch {
             openWindow(id: "MainWindow")
@@ -32,7 +34,7 @@ struct BounceBallApp: App {
           
         }
         .onDisappear {
-          appModel.immersiveSpaceState = .closed
+          appModel.immersiveSpaceState = .vr
           
           if appModel.isFirstLaunch {
             appModel.makrFirstLaunchFalse()
@@ -41,5 +43,18 @@ struct BounceBallApp: App {
         }
     }
     .immersionStyle(selection: .constant(.mixed), in: .mixed)
+
+
+    ImmersiveSpace(id: appModel.immersiveSpaceVRID) {
+            ImmersiveVRView()
+                .environment(appModel)
+                .onAppear {
+                    appModel.immersiveSpaceState = .vr
+                }
+                .onDisappear {
+                    appModel.immersiveSpaceState = .ar
+                }
+        }
+        .immersionStyle(selection: .constant(.full), in: .full)
   }
 }

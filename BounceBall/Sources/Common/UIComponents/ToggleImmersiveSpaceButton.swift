@@ -18,30 +18,18 @@ struct ToggleImmersiveSpaceButton: View {
         Button {
             Task { @MainActor in
                 switch appModel.immersiveSpaceState {
-                    case .open:
+                    case .vr:
                         appModel.immersiveSpaceState = .inTransition
                         await dismissImmersiveSpace()
+                        await openImmersiveSpace(id: appModel.immersiveSpaceARID)
                         // Don't set immersiveSpaceState to .closed because there
                         // are multiple paths to ImmersiveView.onDisappear().
                         // Only set .closed in ImmersiveView.onDisappear().
 
-                    case .closed:
+                    case .ar:
                         appModel.immersiveSpaceState = .inTransition
-                        switch await openImmersiveSpace(id: appModel.immersiveSpaceID) {
-                            case .opened:
-                                // Don't set immersiveSpaceState to .open because there
-                                // may be multiple paths to ImmersiveView.onAppear().
-                                // Only set .open in ImmersiveView.onAppear().
-                                break
-
-                            case .userCancelled, .error:
-                                // On error, we need to mark the immersive space
-                                // as closed because it failed to open.
-                                fallthrough
-                            @unknown default:
-                                // On unknown response, assume space did not open.
-                                appModel.immersiveSpaceState = .closed
-                        }
+                        await dismissImmersiveSpace()
+                        await openImmersiveSpace(id: appModel.immersiveSpaceVRID)
 
                     case .inTransition:
                         // This case should not ever happen because button is disabled for this case.
@@ -49,7 +37,7 @@ struct ToggleImmersiveSpaceButton: View {
                 }
             }
         } label: {
-            Text(appModel.immersiveSpaceState == .open ? "Hide Immersive Space" : "Show Immersive Space")
+            Text(appModel.immersiveSpaceState == .vr ? "현실 공간" : "가상 공간")
         }
         .disabled(appModel.immersiveSpaceState == .inTransition)
         .animation(.none, value: 0)
