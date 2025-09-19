@@ -86,4 +86,8 @@ iOSInjectionProject/
 *.user
 *.userprefs
 SceneMetadataList.json
+
+
+## RealityKitContent 
 Packages/RealityKitContent/Package.realitycomposerpro/WorkspaceData/
+.swiftpm/
