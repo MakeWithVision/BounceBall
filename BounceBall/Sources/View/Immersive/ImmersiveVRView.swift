@@ -14,7 +14,7 @@ struct ImmersiveVRView: View {
     @Environment(AppModel.self) private var appModel
     @State private var worldAnchor = AnchorEntity(world: .zero)
     @State private var immersiveRoot: Entity?
-    @State private var ball: TennisBallEntity?
+    @State private var ballManager = BallManager()
 
     var body: some View {
         RealityView { content in
@@ -34,39 +34,10 @@ struct ImmersiveVRView: View {
             if present {
                 Task { @MainActor in
                     let parent = immersiveRoot!
-                    await respawnBall(parent: parent)
-                    print("isPresent: \(previous) -> \(present)")
+                    let fallback = appModel.windowPosition!
+                    await ballManager.respawnBall(parent: parent, worldPosition: fallback)
                 }
             }
-        }
-    }
-
-    @MainActor
-    private func respawnBall(parent: Entity) async {
-        let fallback = appModel.windowPosition!
-        if appModel.ballPresent {
-            ball?.removeFromParent()
-            ball = nil
-            await spawnBall(parent: parent, worldPosition: fallback)
-        }
-        else {
-            await spawnBall(parent: parent, worldPosition: fallback)
-        }
-    }
-
-    @MainActor
-    private func spawnBall(parent: Entity, worldPosition: SIMD3<Float>) async {
-        do {
-            let newBall = try await TennisBallEntity.loadAsync()
-            newBall.name = "TennisBall"
-
-            parent.addChild(newBall)
-            newBall.position = worldPosition
-
-            ball = newBall
-            print("Ball spawned at \(worldPosition)")
-        } catch {
-            print("spawn error: \(error)")
         }
     }
 }
