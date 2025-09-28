@@ -13,19 +13,23 @@ struct MainWindow: View {
                     ToggleImmersiveSpaceButton()
                     Button(appModel.ballPresent ? "공 초기화" : "공 생성하기") {
                         let windowCenter = proxy.frame(in: .immersiveSpace).center
-                        appModel.windowPosition = SIMD3<Float>(
+                        let target = SIMD3<Float>(
                             Float(windowCenter.x / 1000),
                             -Float(windowCenter.y / 1000),
                             Float(windowCenter.z / 1000) + 0.3
                         )
 
+                        appModel.windowPosition = target
+
                         if appModel.ballPresent {
-                            appModel.ballPosition = appModel.windowPosition
-                            print("windowPosition: \(appModel.windowPosition)")
+                            print("공 초기화")
+                            appModel.ballPresent = false
+                            Task { @MainActor in
+                                await Task.yield()
+                                appModel.ballPresent = true
+                            }
                         } else {
                             appModel.ballPresent = true
-                            appModel.ballPosition = appModel.windowPosition
-                            print("windowPosition: \(appModel.windowPosition)")
                         }
                     }
                 }

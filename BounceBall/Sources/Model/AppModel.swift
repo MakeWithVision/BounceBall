@@ -23,13 +23,15 @@ class AppModel {
     }
     var immersiveSpaceState = ImmersiveSpaceState.ar
   
-  private(set) var isFirstLaunch: Bool = true
+    private(set) var isFirstLaunch: Bool = true
   
-  func makrFirstLaunchFalse() {
-    isFirstLaunch = false
-  }
+    func makrFirstLaunchFalse() {
+        isFirstLaunch = false
+    }
 
-  // 공 관리
-  var ballPresent: Bool = false
-  var ballPosition: SIMD3<Float>?
+    // 윈도우 창 위치
+    var windowPosition: SIMD3<Float>?
+
+    // 공 생성 여부
+    var ballPresent: Bool = false
 }
