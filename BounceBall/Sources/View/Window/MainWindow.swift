@@ -12,17 +12,23 @@ struct MainWindow: View {
                 HStack {
                     ToggleImmersiveSpaceButton()
                     Button(appModel.ballPresent ? "공 초기화" : "공 생성하기") {
-                        let windowCenter = proxy.frame(in: . immersiveSpace).center
-                        let pos = SIMD3<Float>(
-                            Float(windowCenter.x),
-                            Float(windowCenter.y),
-                            Float(windowCenter.z) - 0.3
+                        let windowCenter = proxy.frame(in: .immersiveSpace).center
+                        let target = SIMD3<Float>(
+                            Float(windowCenter.x / 1000),
+                            -Float(windowCenter.y / 1000),
+                            Float(windowCenter.z / 1000) + 0.3
                         )
 
+                        appModel.windowPosition = target
+
                         if appModel.ballPresent {
+                            print("공 초기화")
                             appModel.ballPresent = false
+                            Task { @MainActor in
+                                await Task.yield()
+                                appModel.ballPresent = true
+                            }
                         } else {
-                            // appModel.ballPosition = pos
                             appModel.ballPresent = true
                         }
                     }

@@ -22,6 +22,7 @@ struct ToggleImmersiveSpaceButton: View {
                         appModel.immersiveSpaceState = .inTransition
                         await dismissImmersiveSpace()
                         await openImmersiveSpace(id: appModel.immersiveSpaceARID)
+                        appModel.ballPresent = false
                         // Don't set immersiveSpaceState to .closed because there
                         // are multiple paths to ImmersiveView.onDisappear().
                         // Only set .closed in ImmersiveView.onDisappear().
@@ -30,6 +31,7 @@ struct ToggleImmersiveSpaceButton: View {
                         appModel.immersiveSpaceState = .inTransition
                         await dismissImmersiveSpace()
                         await openImmersiveSpace(id: appModel.immersiveSpaceVRID)
+                        appModel.ballPresent = false
 
                     case .inTransition:
                         // This case should not ever happen because button is disabled for this case.
