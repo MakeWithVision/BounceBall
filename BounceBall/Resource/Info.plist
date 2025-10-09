@@ -2,14 +2,26 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key></key>
+	<string></string>
+	<key>NSAccessoryTrackingUsageDescription</key>
+	<string>공간 감지</string>
 	<key>NSEnterpriseMCAMUsageDescription</key>
 	<string></string>
+	<key>NSHandsTrackingUsageDescription</key>
+	<string>손</string>
+	<key>NSHandstrackingUsageDescription</key>
+	<string>Hand tracking access is needed to explore the Hand tracking example code</string>
+	<key>NSMainCameraUsageDescription</key>
+	<string>카메라 공간 감지 수락</string>
 	<key>NSWorldSensingUsageDescription</key>
-	<string></string>
+	<string>주변 감지 수락</string>
 	<key>Privacy - Enterprise Main Camera Usage Description </key>
 	<string></string>
 	<key>Privacy - world Sensing Usage Description</key>
 	<string></string>
+	<key>UIApplicationPreferredDafaultSceneSessionRole</key>
+	<string>UISceneSessionRoleImmersiveSpaceApplication</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationPreferredDefaultSceneSessionRole</key>
